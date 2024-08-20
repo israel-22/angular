@@ -4,4 +4,5 @@ id: number;
 name: string;
 peso: number;
 imagen: string;
+tipo: number;
 }

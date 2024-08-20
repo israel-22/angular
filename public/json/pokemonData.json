@@ -2,18 +2,21 @@
     {  "id":1,
     "nombre": "Pikachu",
     "peso":6.0,
-    "imagen": "img/pokemon.png"
+    "imagen": "img/pokemon.png",
+    "tipo": 1
   },
 
   {  "id":2,
     "nombre": "Charmander",
     "peso":8.5,
-    "imagen": "img/pokemonII.jpg"
+    "imagen": "img/pokemonII.jpg",
+    "tipo": 2
   },
     
   {  "id":3,
     "nombre": "Squirtle",
     "peso": 9.0,
-    "imagen": "img/pokemonIII.jpg"
+    "imagen": "img/pokemonIII.jpg",
+    "tipo": 3
   }
 ]
