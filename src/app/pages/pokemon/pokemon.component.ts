@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink,RouterLinkActive} from '@angular/router';
 import { Pokemon } from '../../utils/pokemon';
 import*as pokemonData from '../../../../public/json/pokemonData.json';
+
+
 
 @Component({
   selector: 'app-pokemon',
   standalone: true,
-  imports: [],
+  imports: [RouterLink,RouterLinkActive],
   templateUrl: './pokemon.component.html',
   styleUrl: './pokemon.component.css'
 })
@@ -23,7 +25,7 @@ this.route.paramMap.subscribe(
       }
     );
    this.pokemons =((pokemonData as any).default as Pokemon[])
-   .find((pokemon) => pokemon.id === this.id)
+   .find((pokemon) => pokemon.id === this.id);
     
 }
 }
