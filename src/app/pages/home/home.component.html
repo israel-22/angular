@@ -18,7 +18,7 @@
         <div class="carousel-inner">
           <div *ngFor="let pokemon of pokemons; let isFirst = first" 
                [ngClass]="{'carousel-item': true, 'active': isFirst}">
-            <img [src]="pokemon.imagen" class="d-block w-100" [alt]="pokemon.name">
+            <img [src]="pokemon.imagen" class="d-block w-100" [alt]="pokemon.nombre">
             <h5 *ngIf="pokemon.peso > 7; else elseTemplate">Es pesado</h5>
             <ng-template #elseTemplate>Es liviano</ng-template>
             <span [ngSwitch]="pokemon.tipo">
