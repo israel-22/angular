@@ -1,9 +1,53 @@
 <div class="container-fluid text-center">
+
+    <form  [formGroup]="form" (ngSubmit)="createPost()">
+        <div class="mb-3">
+            <label for="userId" class="form-label">Usuario</label>
+            <input  formControlName="userId"
+             type="number"
+              [class]="form.get('userId')?.invalid && form.get('userId')?.touched?'form-control is-invalid':'form-control '"
+              id="userId" 
+              placeholder="1234">
+            <div  class="invalid-feedback">
+                Seleccione un Id de usuario
+              </div>
+          </div>
+          <div class="mb-3">
+            <label for="title" class="form-label">Titulo</label>
+            <input formControlName="title" 
+             type="text" 
+             [class]="form.get('title')?.invalid && form.get('title')?.touched?'form-control is-invalid':'form-control '"
+             id="title"
+              placeholder="Required">
+              <div  class="invalid-feedback">
+               el titulo es requerido para contunuar
+              </div>
+          </div>
+
+        <div class="mb-3">
+          <label for="body" class="form-label">Post</label>
+          <textarea  formControlName="body"
+           type="text" 
+           [class]="form.get('body')?.invalid && form.get('body')?.touched?'form-control is-invalid':'form-control '"
+           id="body" 
+           placeholder="¿En que estas pensando?" ></textarea>
+           
+           <div class="invalid-feedback">
+            <span *ngIf="form.get('body')?.errors?.['minlength']"> Mayor con 10 caracteres</span>
+            <span *ngIf="form.get('body')?.errors?.['required']"> es obligatorio</span>
+    
+          </div>
+        </div>
+        <div class="mb-3">
+          <button class="btn btn-primary" type="submit">Añadir Post</button>
+        </div>
+      </form>
+
     <h1>Listado de Posts</h1>
     <p>{{this.postsService.post}}</p>
 
     <div class="list-group">
-        <a  class="list-group-item list-group-item-action active" aria-current="true" *ngFor="let post of posts">
+        <a  class="list-group-item list-group-item-action " aria-current="true" *ngFor="let post of posts">
 
             <h5 class="mb-1">{{post.title}}</h5>
             <p class="mb-1">{{post.body}}</p>
