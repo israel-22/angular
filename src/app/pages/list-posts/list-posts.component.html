@@ -1,4 +1,14 @@
 <div class="container-fluid text-center">
     <h1>Listado de Posts</h1>
     <p>{{this.postsService.post}}</p>
+
+    <div class="list-group">
+        <a  class="list-group-item list-group-item-action active" aria-current="true" *ngFor="let post of posts">
+
+            <h5 class="mb-1">{{post.title}}</h5>
+            <p class="mb-1">{{post.body}}</p>
+          <small>{{post.userId}}</small>
+        </a>
+        
+      </div>
 </div>
