@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { Pokemon } from '../../utils/pokemon';
+import { PokemonsService } from '../../service/pokemons/pokemons.service'; 
+import { Pokemon, PokemonResponse } from '../../utils/pokemon';
 import*as pokemonData from '../../../../public/json/pokemonData.json';
 
 @Component({
@@ -12,10 +13,24 @@ import*as pokemonData from '../../../../public/json/pokemonData.json';
   styleUrl: './pokemons.component.css'
 })
 export class PokemonsComponent {
-  pokemons: Pokemon[] = (pokemonData as any).default;
-  constructor(private router: Router) {}
+  //pokemons: Pokemon[] = (pokemonData as any).default; //carga desde el json
+  pokemons: Pokemon[] = [];
+  pokemonResponse?: PokemonResponse;
+
+  constructor(private router: Router, private pokemonsService: PokemonsService) {}
   ngOnInit(): void {
+this.getPokemons();
   }
+getPokemons(): void {
+  this.pokemonsService.getPokemons().subscribe((pokemonResponse) => {
+    this.pokemonResponse = pokemonResponse;
+for(const pokemonResult of this.pokemonResponse.results){
+  this.pokemonsService.getPokemon(pokemonResult.name).subscribe((pokemon) => {
+    this.pokemons.push(pokemon);});
+}
+  });
+}
+
   onClickButton(): void {
     console.log(this.pokemons);
 }

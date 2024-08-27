@@ -23,9 +23,20 @@ export interface PokemonType{
 
 export interface Pokemon{
 id: number;
-nombre: string;
+name: string;
 weight: number;
 height: number;
 sprites: PokemonSprites;
-types: number;
+types: PokemonType[];
 }
+
+
+export interface PokemonResponse{
+    count: number;
+    next: string;
+    previous: string;
+    results: {
+         name: string;
+        url: string}[];
+}
+

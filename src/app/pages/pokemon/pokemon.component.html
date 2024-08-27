@@ -5,16 +5,16 @@
           <li class="breadcrumb-item">
             <a routerLink="/pokemos" routerLinkActive="active" >Pokemons</a>
         </li>
-          <li class="breadcrumb-item active" aria-current="page">{{ pokemons?.nombre }}</li>
+          <li class="breadcrumb-item active" aria-current="page">{{ pokemons?.name }}</li>
         </ol>
       </nav>
 
   <div class="card" style="width: 18rem">
-    <img [src]="pokemons?.imagen" class="card-img-top" [alt]="pokemons?.nombre" />
+    <img [src]="pokemons?.sprites" class="card-img-top" [alt]="pokemons?.name" />
     <div class="card-body">
-      <h5 class="card-title">{{ pokemons?.nombre }}</h5>
+      <h5 class="card-title">{{ pokemons?.name }}</h5>
       <p class="card-text">
-        {{ pokemons?.peso }} kg
+        {{ pokemons?.height}} kg
       </p>
       <a href="#" class="btn btn-primary">Mostrar informacion</a>
     </div>

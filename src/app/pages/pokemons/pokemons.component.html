@@ -10,7 +10,7 @@
         <th scope="col">id</th>
         <th scope="col">Nombre</th>
         <th scope="col">Peso</th>
-        <th scope="col">Tipo</th>
+        <th scope="col">Altura</th>
         <th scope="col">Imagen</th>
       </tr>
     </thead>
@@ -21,12 +21,13 @@
       (click)="onClickPokemon(pokemon)"
       >
         <th scope="row">{{pokemon.id}}</th>
-        <td>{{pokemon.nombre}}</td>
-        <td>{{pokemon.peso}}</td>
-        <td>{{pokemon.tipo}}</td>
-        <td> <img [src]="pokemon.imagen" 
+        <td>{{pokemon.name}}</td>
+        <td>{{pokemon.weight}}</td>
+        <td>{{pokemon.height}}</td>
+
+        <td> <img [src]="pokemon.sprites.front_default" 
             class="figure-img img-fluid rounded" 
-            [alt]="pokemon.nombre"
+            [alt]="pokemon.name"
             style="width: 200px;"
            ></td>
       </tr>
