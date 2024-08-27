@@ -20,9 +20,7 @@ getPokemon(name: string): Observable<Pokemon>{
 }
 
 
-getPokemonByID(id: number): Observable<Pokemon>{
-  return this.http.get<Pokemon>(`${this.url}/${id}`);
+getPokemonByID(id: number): Observable<Pokemon>{ 
+  return this.http.get<Pokemon>(`${this.url}/${id}`); 
 }
-
-
 }

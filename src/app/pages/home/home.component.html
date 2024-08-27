@@ -3,7 +3,7 @@
     <div class="container" style="width: 50%;">
       <h1>Pokemon de la Semana</h1>
       <figure class="figure">
-        <img [src]="pokemons[0].sprites" 
+        <img [src]="pokemons[0].sprites.front_default" 
         class="figure-img img-fluid rounded" 
         alt="Pokemon de la semana"
         style="width: 30%;">
@@ -18,8 +18,8 @@
         <div class="carousel-inner">
           <div *ngFor="let pokemon of pokemons; let isFirst = first" 
                [ngClass]="{'carousel-item': true, 'active': isFirst}">
-            <img [src]="pokemon.sprites" class="d-block w-100" [alt]="pokemon.name">
-            <h5 *ngIf="pokemon.weight > 7; else elseTemplate">Es pesado</h5>
+            <img [src]="pokemon.sprites.front_default" class="d-block w-100" [alt]="pokemon.name">
+            <h5 *ngIf="pokemon.height > 7; else elseTemplate">Es pesado</h5>
             <ng-template #elseTemplate>Es liviano</ng-template>
             <!-- <span [ngSwitch]="pokemon.types">
               <div *ngSwitchCase="1">Planta</div>

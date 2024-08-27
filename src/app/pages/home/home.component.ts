@@ -20,18 +20,16 @@ pokemons: Pokemon[] = [];
 //indicePokemonSemana: number = randomInt(0, 3); //este funciona con crypto que si funciona
 indicePokemonSemana: number = randomInt(20);
   
-constructor( private pokemonsService: PokemonsService) {}
+constructor(private pokemonsService: PokemonsService) {}
 ngOnInit(): void {
-  this.getPokemons();
-  // console.log(pokemonData);
+this.getPokemons();
 }
 getPokemons(): void {
   this.pokemonsService.getPokemons().subscribe((pokemonResponse) => {
-for(const pokemonResult of pokemonResponse.results){
+for(const pokemonResult of pokemonResponse.results) {
   this.pokemonsService.getPokemon(pokemonResult.name).subscribe((pokemon) => {
     this.pokemons.push(pokemon);});
 }
   });
 }
-
 }
