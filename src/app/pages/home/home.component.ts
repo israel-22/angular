@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Pokemon } from '../../utils/pokemon';
 import*as pokemonData from '../../../../public/json/pokemonData.json';
+import { PokemonsService } from '../../service/pokemons/pokemons.service';
 //import { randomInt } from 'crypto';
 function randomInt(max: number) {
   return Math.floor(Math.random() * max);
@@ -15,13 +16,22 @@ function randomInt(max: number) {
   styleUrl: './home.component.css'
 })
 export  class HomeComponent {
-pokemons: Pokemon[] = (pokemonData as any).default;
+pokemons: Pokemon[] = [];
 //indicePokemonSemana: number = randomInt(0, 3); //este funciona con crypto que si funciona
-indicePokemonSemana: number = randomInt(3);
+indicePokemonSemana: number = randomInt(20);
   
-constructor() {}
+constructor( private pokemonsService: PokemonsService) {}
 ngOnInit(): void {
-  console.log(pokemonData);
+  this.getPokemons();
+  // console.log(pokemonData);
+}
+getPokemons(): void {
+  this.pokemonsService.getPokemons().subscribe((pokemonResponse) => {
+for(const pokemonResult of pokemonResponse.results){
+  this.pokemonsService.getPokemon(pokemonResult.name).subscribe((pokemon) => {
+    this.pokemons.push(pokemon);});
+}
+  });
 }
 
 }

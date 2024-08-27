@@ -19,14 +19,14 @@
           <div *ngFor="let pokemon of pokemons; let isFirst = first" 
                [ngClass]="{'carousel-item': true, 'active': isFirst}">
             <img [src]="pokemon.sprites" class="d-block w-100" [alt]="pokemon.name">
-            <h5 *ngIf="pokemon.height > 7; else elseTemplate">Es pesado</h5>
+            <h5 *ngIf="pokemon.weight > 7; else elseTemplate">Es pesado</h5>
             <ng-template #elseTemplate>Es liviano</ng-template>
-            <span [ngSwitch]="pokemon.types">
+            <!-- <span [ngSwitch]="pokemon.types">
               <div *ngSwitchCase="1">Planta</div>
               <div *ngSwitchCase="2">Electrico</div>
               <div *ngSwitchCase="3">Fuego</div>
               <div *ngSwitchDefault>Desconocido</div>
-            </span>
+            </span> -->
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">

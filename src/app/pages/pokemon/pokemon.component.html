@@ -10,11 +10,11 @@
       </nav>
 
   <div class="card" style="width: 18rem">
-    <img [src]="pokemons?.sprites" class="card-img-top" [alt]="pokemons?.name" />
+    <img [src]="pokemons?.sprites?.front_default" class="card-img-top" [alt]="pokemons?.name" />
     <div class="card-body">
       <h5 class="card-title">{{ pokemons?.name }}</h5>
       <p class="card-text">
-        {{ pokemons?.height}} kg
+        {{ pokemons?.weight}} kg
       </p>
       <a href="#" class="btn btn-primary">Mostrar informacion</a>
     </div>
