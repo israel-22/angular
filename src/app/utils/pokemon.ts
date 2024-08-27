@@ -1,8 +1,31 @@
+export interface PokemonSprites{
+
+    front_default: string ;
+
+    front_shiny: string ;
+    front_female: string ;
+    front_shiny_female: string ;
+    back_default: string ;
+    back_shiny: string ;
+    back_female: string ;
+    back_shiny_female: string ;  
+}
+
+export interface PokemonType{
+
+    slot: number;
+    type: {
+        name: string;
+        url: string;
+    };
+    
+}
 
 export interface Pokemon{
 id: number;
 nombre: string;
-peso: number;
-imagen: string;
-tipo: number;
+weight: number;
+height: number;
+sprites: PokemonSprites;
+types: number;
 }
