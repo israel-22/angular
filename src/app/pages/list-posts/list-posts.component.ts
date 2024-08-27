@@ -40,4 +40,19 @@ export class ListPostsComponent {
       })
      }
    }
+
+   updatePost(post: Post): void{
+    const newPost = {...post,title:'Titulo Actualizado'}
+    this.postsService.updatePost(newPost).subscribe((post)=> {
+      const index = this.posts.findIndex(p=> p.id === post.id);
+      this.posts[index] = post;
+      
+    });
+   }
+
+   deletePost(post: Post): void{
+    this.postsService.deletePost(post).subscribe(()=> {
+      this.posts.splice(this.posts.indexOf(post),1)
+    });
+   }
 }
