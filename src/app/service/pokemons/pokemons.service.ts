@@ -15,12 +15,13 @@ export class PokemonsService {
     return this.http.get<PokemonResponse>(this.url);
   }
 
-getPokemon(name: string): Observable<Pokemon>{
-  return this.http.get<Pokemon>(`${this.url}/${name}`);
+
+getPokemon(param: string | number): Observable<Pokemon>{
+  return this.http.get<Pokemon>(`${this.url}/${param}`);
 }
 
 
-getPokemonByID(id: number): Observable<Pokemon>{ 
-  return this.http.get<Pokemon>(`${this.url}/${id}`); 
-}
+// getPokemonByID(id: number): Observable<Pokemon>{ 
+//   return this.http.get<Pokemon>(`${this.url}/${id}`); 
+// }
 }

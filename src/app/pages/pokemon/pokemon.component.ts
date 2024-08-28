@@ -22,7 +22,7 @@ this.route.paramMap.subscribe(
       (params) => { 
         const id=Number(params.get("id")); 
         // console.log(this.id); 
-        this.pokemonsService.getPokemonByID(id).subscribe( 
+        this.pokemonsService.getPokemon(id).subscribe( 
           (pokemon) => this.pokemons = pokemon 
         ) 
       } 
