@@ -15,16 +15,23 @@ import*as pokemonData from '../../../../public/json/pokemonData.json';
 export class PokemonsComponent {
   //pokemons: Pokemon[] = (pokemonData as any).default; //carga desde el json
   pokemons: Pokemon[] = [];
-  pokemonResponse?: PokemonResponse;
+  paginas: number[]=[];
+  pokemonsPorPagina: number = 20;
+  // pokemonResponse?: PokemonResponse;
 
   constructor(private router: Router, private pokemonsService: PokemonsService) {}
   ngOnInit(): void {
 this.getPokemons();
   }
-getPokemons(): void {
-  this.pokemonsService.getPokemons().subscribe((pokemonResponse) => {
-    this.pokemonResponse = pokemonResponse;
-for(const pokemonResult of this.pokemonResponse.results){
+
+getPokemons(pagina: number = 0): void {
+  this.pokemons =[];
+  this.pokemonsService.getPokemons(pagina*this.pokemonsPorPagina, this.pokemonsPorPagina)
+  .subscribe((pokemonResponse) => {
+   this.paginas
+   =Array(Math.ceil(  pokemonResponse.count/this.pokemonsPorPagina))
+   .fill(0).map((_, index) => index +1);
+for(const pokemonResult of pokemonResponse.results){
   this.pokemonsService.getPokemon(pokemonResult.name).subscribe((pokemon) => {
     this.pokemons.push(pokemon);});
 }
