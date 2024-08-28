@@ -12,5 +12,5 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'primerEjercicio..';
+  title = 'primer-ejercicio..';
 }

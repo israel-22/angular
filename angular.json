@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "primerEjercicio": {
+    "primer-ejercicio": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "primerEjercicio:build:production"
+              "buildTarget": "primer-ejercicio:build:production"
             },
             "development": {
-              "buildTarget": "primerEjercicio:build:development"
+              "buildTarget": "primer-ejercicio:build:development"
             }
           },
           "defaultConfiguration": "development"
