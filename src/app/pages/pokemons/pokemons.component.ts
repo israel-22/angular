@@ -17,6 +17,8 @@ export class PokemonsComponent {
   pokemons: Pokemon[] = [];
   paginas: number[]=[];
   pokemonsPorPagina: number = 20;
+  paginaActual: number = 0;
+  numPokemons: number = 0;
   // pokemonResponse?: PokemonResponse;
 
   constructor(private router: Router, private pokemonsService: PokemonsService) {}
@@ -26,10 +28,11 @@ this.getPokemons();
 
 getPokemons(pagina: number = 0): void {
   this.pokemons =[];
+  this.paginaActual =pagina;
   this.pokemonsService.getPokemons(pagina*this.pokemonsPorPagina, this.pokemonsPorPagina)
   .subscribe((pokemonResponse) => {
-   this.paginas
-   =Array(Math.ceil(  pokemonResponse.count/this.pokemonsPorPagina))
+   this.numPokemons = pokemonResponse.count;
+   this.paginas =Array(Math.ceil(  this.numPokemons/this.pokemonsPorPagina))
    .fill(0).map((_, index) => index +1);
 for(const pokemonResult of pokemonResponse.results){
   this.pokemonsService.getPokemon(pokemonResult.name).subscribe((pokemon) => {
